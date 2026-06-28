@@ -33,22 +33,9 @@
       background: #f0f5fb;
       border-radius: 50% 50% 0 0;
     }
-    .header .org-name {
-      font-size: 0.9rem;
-      opacity: 0.85;
-      letter-spacing: 2px;
-      margin-bottom: 10px;
-    }
-    .header h1 {
-      font-size: 1.6rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-    .header .subtitle {
-      font-size: 0.95rem;
-      opacity: 0.9;
-      margin-top: 8px;
-    }
+    .header .org-name { font-size: 0.9rem; opacity: 0.85; letter-spacing: 2px; margin-bottom: 10px; }
+    .header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: 1px; }
+    .header .subtitle { font-size: 0.95rem; opacity: 0.9; margin-top: 8px; }
     .header .badge {
       display: inline-block;
       background: rgba(255,255,255,0.2);
@@ -59,185 +46,85 @@
       margin-top: 14px;
     }
 
-    .form-section {
-      padding: 10px 16px 20px;
-      position: relative;
-      z-index: 1;
-    }
+    .form-section { padding: 10px 16px 20px; position: relative; z-index: 1; }
     .form-card {
       background: #fff;
       border-radius: 16px;
       padding: 24px 20px;
       box-shadow: 0 2px 16px rgba(74,144,217,0.08);
     }
-    .form-card h2 {
-      font-size: 1.15rem;
-      color: #4A90D9;
-      text-align: center;
-      margin-bottom: 6px;
-    }
-    .form-card .form-desc {
-      text-align: center;
-      color: #999;
-      font-size: 0.8rem;
-      margin-bottom: 20px;
-    }
+    .form-card h2 { font-size: 1.15rem; color: #4A90D9; text-align: center; margin-bottom: 6px; }
+    .form-card .form-desc { text-align: center; color: #999; font-size: 0.8rem; margin-bottom: 20px; }
 
-    .form-group {
-      margin-bottom: 16px;
-    }
-    .form-group label {
-      display: block;
-      font-size: 0.85rem;
-      color: #555;
-      margin-bottom: 6px;
-      font-weight: 500;
-    }
-    .form-group input,
-    .form-group select {
-      width: 100%;
-      height: 44px;
-      border: 1px solid #e0e6ed;
-      border-radius: 10px;
-      padding: 0 14px;
-      font-size: 0.9rem;
-      color: #333;
-      background: #f8fafc;
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 0.85rem; color: #555; margin-bottom: 6px; font-weight: 500; }
+    .form-group input, .form-group select {
+      width: 100%; height: 44px; border: 1px solid #e0e6ed; border-radius: 10px;
+      padding: 0 14px; font-size: 0.9rem; color: #333; background: #f8fafc;
       transition: border-color 0.2s, background 0.2s;
-      -webkit-appearance: none;
-      outline: none;
+      -webkit-appearance: none; outline: none;
     }
-    .form-group input:focus,
-    .form-group select:focus {
-      border-color: #4A90D9;
-      background: #fff;
+    .form-group input:focus, .form-group select:focus {
+      border-color: #4A90D9; background: #fff;
       box-shadow: 0 0 0 3px rgba(74,144,217,0.1);
     }
     .form-group select {
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23999' stroke-width='1.5'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 14px center;
-      padding-right: 36px;
+      background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px;
     }
 
-    .sms-row {
-      display: flex;
-      gap: 10px;
-    }
-    .sms-row input {
-      flex: 1;
-    }
+    .sms-row { display: flex; gap: 10px; }
+    .sms-row input { flex: 1; }
     .sms-btn {
-      width: 120px;
-      min-width: 120px;
-      height: 44px;
-      border: none;
-      border-radius: 10px;
-      background: #5BB8A5;
-      color: #fff;
-      font-size: 0.8rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: background 0.2s;
-      white-space: nowrap;
+      width: 120px; min-width: 120px; height: 44px; border: none; border-radius: 10px;
+      background: #5BB8A5; color: #fff; font-size: 0.8rem; font-weight: 500;
+      cursor: pointer; transition: background 0.2s; white-space: nowrap;
     }
     .sms-btn:active { background: #4a9f8e; }
-    .sms-btn:disabled {
-      background: #ccc;
-      color: #fff;
-      cursor: not-allowed;
-    }
+    .sms-btn:disabled { background: #ccc; cursor: not-allowed; }
 
     .submit-btn {
-      width: 100%;
-      height: 48px;
-      border: none;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #4A90D9, #357ABD);
-      color: #fff;
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      cursor: pointer;
+      width: 100%; height: 48px; border: none; border-radius: 12px;
+      background: linear-gradient(135deg, #4A90D9, #357ABD); color: #fff;
+      font-size: 1rem; font-weight: 600; letter-spacing: 1px; cursor: pointer;
       box-shadow: 0 4px 14px rgba(74,144,217,0.35);
-      transition: transform 0.15s, box-shadow 0.15s;
-      margin-top: 6px;
+      transition: transform 0.15s, box-shadow 0.15s; margin-top: 6px;
     }
-    .submit-btn:active {
-      transform: scale(0.98);
-      box-shadow: 0 2px 8px rgba(74,144,217,0.3);
-    }
+    .submit-btn:active { transform: scale(0.98); box-shadow: 0 2px 8px rgba(74,144,217,0.3); }
 
     .toast {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,0.78);
-      color: #fff;
-      padding: 10px 22px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      z-index: 9999;
-      opacity: 0;
-      transition: opacity 0.3s;
-      pointer-events: none;
+      position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+      background: rgba(0,0,0,0.78); color: #fff; padding: 10px 22px;
+      border-radius: 20px; font-size: 0.85rem; z-index: 9999;
+      opacity: 0; transition: opacity 0.3s; pointer-events: none;
     }
     .toast.show { opacity: 1; }
 
     .sms-modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
-      z-index: 999;
-      align-items: flex-end;
-      justify-content: center;
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+      z-index: 10000; align-items: flex-end; justify-content: center;
     }
     .sms-modal-overlay.active { display: flex; }
     .sms-modal {
-      background: #fff;
-      border-radius: 20px 20px 0 0;
-      padding: 32px 24px 40px;
-      width: 100%;
-      max-width: 420px;
-      text-align: center;
+      background: #fff; border-radius: 20px 20px 0 0;
+      padding: 32px 24px 40px; width: 100%; max-width: 420px; text-align: center;
       animation: slideUp 0.3s ease;
     }
-    @keyframes slideUp {
-      from { transform: translateY(100%); }
-      to { transform: translateY(0); }
-    }
+    @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+    .sms-modal h3 { font-size: 1.05rem; color: #333; margin-bottom: 4px; }
+    .sms-modal .sms-phone-info { font-size: 0.85rem; color: #999; margin-bottom: 6px; }
     .sms-modal .sms-code-display {
-      font-size: 3rem;
-      font-weight: 700;
-      letter-spacing: 12px;
-      color: #4A90D9;
-      margin: 20px 0 24px;
-      font-family: "SF Mono", "Menlo", "Courier New", monospace;
+      font-size: 3rem; font-weight: 700; letter-spacing: 12px; color: #4A90D9;
+      margin: 20px 0 24px; font-family: "SF Mono", "Menlo", "Courier New", monospace;
     }
-    .sms-modal .sms-phone-info {
-      font-size: 0.85rem;
-      color: #999;
-      margin-bottom: 6px;
-    }
+    .sms-modal .sms-hint { font-size: 0.78rem; color: #aaa; margin-bottom: 20px; }
     .sms-modal .btn-close-sms {
-      width: 100%;
-      height: 48px;
-      border: none;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #5BB8A5, #4A90D9);
-      color: #fff;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
+      width: 100%; height: 48px; border: none; border-radius: 12px;
+      background: linear-gradient(135deg, #5BB8A5, #4A90D9); color: #fff;
+      font-size: 1rem; font-weight: 600; cursor: pointer;
     }
-    .footer {
-      text-align: center;
-      font-size: 0.7rem;
-      color: #bbb;
-      padding: 16px;
-    }
+
+    .footer { text-align: center; font-size: 0.7rem; color: #bbb; padding: 16px; }
   </style>
 </head>
 <body>
@@ -259,7 +146,6 @@
           <label>姓名</label>
           <input type="text" id="name" placeholder="请输入你的姓名" maxlength="20" autocomplete="name">
         </div>
-
         <div class="form-group">
           <label>手机号</label>
           <div class="sms-row">
@@ -267,12 +153,10 @@
             <button type="button" class="sms-btn" id="smsBtn" onclick="sendSms()">获取验证码</button>
           </div>
         </div>
-
         <div class="form-group">
           <label>验证码</label>
-          <input type="text" id="smsCode" placeholder="请输入验证码" maxlength="4" inputmode="numeric" pattern="[0-9]*">
+          <input type="text" id="smsCode" placeholder="请输入4位验证码" maxlength="4" inputmode="numeric" pattern="[0-9]*">
         </div>
-
         <div class="form-group">
           <label>意向学科</label>
           <select id="subject">
@@ -289,7 +173,6 @@
             <option value="全科">全科</option>
           </select>
         </div>
-
         <div class="form-group">
           <label>意向年级</label>
           <select id="grade">
@@ -308,7 +191,6 @@
             <option value="高三">高三</option>
           </select>
         </div>
-
         <button type="submit" class="submit-btn">立即领取</button>
       </form>
     </div>
@@ -323,10 +205,11 @@
       <h3>📲 验证码</h3>
       <p class="sms-phone-info">已发送至 <strong id="smsPhoneDisplay"></strong></p>
       <div class="sms-code-display" id="smsCodeDisplay"></div>
-      <p style="font-size:0.78rem;color:#aaa;margin-bottom:20px">请记住验证码后关闭此提示</p>
+      <p class="sms-hint">请记住验证码后关闭此提示</p>
       <button class="btn-close-sms" onclick="closeSmsModal()">我知道了</button>
     </div>
   </div>
+
   <script>
     var WECOM_WEBHOOK = 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=a39f6c5d-727f-4889-85fd-5afcab1c534f';
 
@@ -343,7 +226,7 @@
       if (smsCountdown > 0) return;
 
       smsCode = String(Math.floor(1000 + Math.random() * 9000));
-            document.getElementById("smsPhoneDisplay").textContent = phone;
+      document.getElementById('smsPhoneDisplay').textContent = phone;
       document.getElementById('smsCodeDisplay').textContent = smsCode;
       document.getElementById('smsModalOverlay').classList.add('active');
 
@@ -368,51 +251,43 @@
       toast.textContent = msg;
       toast.classList.add('show');
       clearTimeout(toast._timeout);
-      toast._timeout = setTimeout(function() {
-        toast.classList.remove('show');
-      }, 2000);
+      toast._timeout = setTimeout(function() { toast.classList.remove('show'); }, 2000);
     }
 
     function closeSmsModal() {
-      document.getElementById("smsModalOverlay").classList.remove("active");
+      document.getElementById('smsModalOverlay').classList.remove('active');
     }
 
-    // ==================== 企微推送 ====================
     async function pushToWecom(data) {
       var body = {
-        msgtype: "markdown",
+        msgtype: 'markdown',
         markdown: {
           content:
-            "## 🔔 新线索 · 学科资料领取
-" +
-            "> **姓名**：" + data.name + "
-" +
-            "> **手机号**：" + data.phone + "
-" +
-            "> **意向学科**：" + data.subject + "
-" +
-            "> **意向年级**：" + data.grade + "
-" +
-            "> 提交时间：" + data.time
+            '## 🔔 新线索 · 学科资料领取\n' +
+            '> **姓名**：' + data.name + '\n' +
+            '> **手机号**：' + data.phone + '\n' +
+            '> **意向学科**：' + data.subject + '\n' +
+            '> **意向年级**：' + data.grade + '\n' +
+            '> 提交时间：' + data.time
         }
       };
 
       try {
         var resp = await fetch(WECOM_WEBHOOK, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(body)
         });
         var result = await resp.json();
         if (result.errcode === 0) {
-          console.log("企微推送成功");
+          console.log('企微推送成功');
           return { ok: true };
         } else {
-          console.warn("企微推送返回异常：", result);
+          console.warn('企微推送异常：', result);
           return { ok: false, error: result };
         }
       } catch (err) {
-        console.error("企微推送失败：", err);
+        console.error('企微推送失败：', err);
         return { ok: false, error: err.message };
       }
     }
@@ -447,11 +322,12 @@
         String(now.getSeconds()).padStart(2, '0');
 
       var data = { name: nameVal, phone: phoneVal, subject: subjectVal, grade: gradeVal, time: timeStr };
-      console.log('表单数据：', data);
-
       await pushToWecom(data);
 
-      // 跳转到老师微信页面，表单数据通过 URL 参数透传
+      submitBtn.textContent = '立即领取';
+      submitBtn.style.opacity = '1';
+      submitBtn.style.pointerEvents = 'auto';
+
       var params = new URLSearchParams();
       params.set('name', nameVal);
       params.set('phone', phoneVal);
