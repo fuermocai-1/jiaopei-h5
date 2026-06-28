@@ -13,14 +13,10 @@
       color: #333;
       min-height: 100vh;
       line-height: 1.6;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
 
     .header {
       background: linear-gradient(135deg, #4A90D9 0%, #5BB8A5 100%);
-      width: 100%;
       padding: 48px 20px 36px;
       text-align: center;
       color: #fff;
@@ -37,17 +33,11 @@
       background: #f0f5fb;
       border-radius: 50% 50% 0 0;
     }
-
-    .success-icon {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.25);
-      margin: 0 auto 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
+    .header .org-name {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
     }
     .header h1 {
       font-size: 1.4rem;
@@ -62,33 +52,54 @@
 
     .card-section {
       padding: 10px 16px 30px;
-      width: 100%;
-      max-width: 420px;
     }
 
-    .success-card {
+    .guide-card {
       background: #fff;
       border-radius: 16px;
-      padding: 24px 20px;
+      padding: 28px 20px 24px;
       box-shadow: 0 2px 16px rgba(74,144,217,0.08);
       text-align: center;
       margin-bottom: 16px;
     }
-    .success-card h2 {
+    .guide-card h2 {
       font-size: 1.1rem;
-      color: #5BB8A5;
-      margin-bottom: 12px;
+      color: #4A90D9;
+      margin-bottom: 10px;
     }
-    .success-card .info-row {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      margin-bottom: 6px;
+    .guide-card .guide-desc {
       font-size: 0.85rem;
       color: #666;
+      margin-bottom: 18px;
+      line-height: 1.6;
     }
-    .success-card .info-row span {
-      color: #999;
+    .step-list {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 0.85rem;
+      color: #555;
+    }
+    .step-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #4A90D9, #5BB8A5);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step-text strong {
+      color: #333;
     }
 
     .wecom-card {
@@ -97,17 +108,6 @@
       padding: 32px 20px 28px;
       box-shadow: 0 2px 16px rgba(74,144,217,0.08);
       text-align: center;
-    }
-    .wecom-card .section-title {
-      font-size: 1.1rem;
-      color: #4A90D9;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-    .wecom-card .section-desc {
-      font-size: 0.82rem;
-      color: #999;
-      margin-bottom: 22px;
     }
     .wecom-avatar {
       width: 72px;
@@ -166,30 +166,39 @@
       font-size: 0.7rem;
       color: #bbb;
       padding: 16px;
-      width: 100%;
     }
   </style>
 </head>
 <body>
 
   <header class="header">
-    <div class="success-icon">✓</div>
-    <h1>信息预留成功</h1>
-    <div class="subtitle">老师会尽快处理你的申请</div>
+    <div class="org-name">好学教育</div>
+    <h1>添加老师微信 · 领取资料</h1>
+    <div class="subtitle">资料已备好，添加老师即刻发送</div>
   </header>
 
   <section class="card-section">
-    <div class="success-card">
-      <h2>你的预留信息</h2>
-      <div class="info-row"><span>姓名</span> <strong id="infoName">-</strong></div>
-      <div class="info-row"><span>学科</span> <strong id="infoSubject">-</strong></div>
-      <div class="info-row"><span>年级</span> <strong id="infoGrade">-</strong></div>
+    <div class="guide-card">
+      <h2>📋 领取方式</h2>
+      <p class="guide-desc">只需一步，老师将资料直接发送给你</p>
+
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-text"><strong>长按识别下方二维码</strong>，添加老师企业微信</div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-text"><strong>备注"领取资料"</strong>，老师通过后直接发送</div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-text"><strong>免费获得全科资料包</strong>，小初高全覆盖</div>
+        </div>
+      </div>
     </div>
 
     <div class="wecom-card">
-      <div class="section-title">📱 添加老师微信</div>
-      <div class="section-desc">添加老师，更快领取资料</div>
-
       <img class="wecom-avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Crect fill='%235BB8A5' width='72' height='72' rx='36'/%3E%3Ctext x='36' y='47' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3E师%3C/text%3E%3C/svg%3E" alt="老师头像">
       <div class="wecom-name">好学教育-李老师</div>
       <div class="wecom-role">资深学科规划师</div>
@@ -207,12 +216,5 @@
 
   <footer class="footer">© 2026 好学教育 · 用心做教育</footer>
 
-  <script>
-    // 从 URL 参数读取用户信息
-    var params = new URLSearchParams(window.location.search);
-    document.getElementById('infoName').textContent = params.get('name') || '-';
-    document.getElementById('infoSubject').textContent = params.get('subject') || '-';
-    document.getElementById('infoGrade').textContent = params.get('grade') || '-';
-  </script>
 </body>
 </html>
