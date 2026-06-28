@@ -9,53 +9,32 @@
     html { font-size: 16px; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-      background: #f0f5fb;
-      color: #333;
-      min-height: 100vh;
-      line-height: 1.6;
+      background: #f0f5fb; color: #333; min-height: 100vh; line-height: 1.6;
     }
-
     .header {
       background: linear-gradient(135deg, #4A90D9 0%, #5BB8A5 100%);
-      padding: 48px 20px 36px;
-      text-align: center;
-      color: #fff;
-      position: relative;
-      overflow: hidden;
+      padding: 48px 20px 36px; text-align: center; color: #fff;
+      position: relative; overflow: hidden;
     }
     .header::after {
-      content: '';
-      position: absolute;
-      bottom: -30px;
-      left: 0;
-      right: 0;
-      height: 60px;
-      background: #f0f5fb;
-      border-radius: 50% 50% 0 0;
+      content: ''; position: absolute; bottom: -30px; left: 0; right: 0;
+      height: 60px; background: #f0f5fb; border-radius: 50% 50% 0 0;
     }
     .header .org-name { font-size: 0.9rem; opacity: 0.85; letter-spacing: 2px; margin-bottom: 10px; }
     .header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: 1px; }
     .header .subtitle { font-size: 0.95rem; opacity: 0.9; margin-top: 8px; }
     .header .badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.2);
-      border: 1px solid rgba(255,255,255,0.4);
-      border-radius: 20px;
-      padding: 6px 16px;
-      font-size: 0.8rem;
-      margin-top: 14px;
+      display: inline-block; background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4); border-radius: 20px;
+      padding: 6px 16px; font-size: 0.8rem; margin-top: 14px;
     }
-
     .form-section { padding: 10px 16px 20px; position: relative; z-index: 1; }
     .form-card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 24px 20px;
+      background: #fff; border-radius: 16px; padding: 24px 20px;
       box-shadow: 0 2px 16px rgba(74,144,217,0.08);
     }
     .form-card h2 { font-size: 1.15rem; color: #4A90D9; text-align: center; margin-bottom: 6px; }
     .form-card .form-desc { text-align: center; color: #999; font-size: 0.8rem; margin-bottom: 20px; }
-
     .form-group { margin-bottom: 16px; }
     .form-group label { display: block; font-size: 0.85rem; color: #555; margin-bottom: 6px; font-weight: 500; }
     .form-group input, .form-group select {
@@ -72,7 +51,6 @@
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23999' stroke-width='1.5'/%3E%3C/svg%3E");
       background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px;
     }
-
     .sms-row { display: flex; gap: 10px; }
     .sms-row input { flex: 1; }
     .sms-btn {
@@ -82,7 +60,6 @@
     }
     .sms-btn:active { background: #4a9f8e; }
     .sms-btn:disabled { background: #ccc; cursor: not-allowed; }
-
     .submit-btn {
       width: 100%; height: 48px; border: none; border-radius: 12px;
       background: linear-gradient(135deg, #4A90D9, #357ABD); color: #fff;
@@ -91,7 +68,6 @@
       transition: transform 0.15s, box-shadow 0.15s; margin-top: 6px;
     }
     .submit-btn:active { transform: scale(0.98); box-shadow: 0 2px 8px rgba(74,144,217,0.3); }
-
     .toast {
       position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
       background: rgba(0,0,0,0.78); color: #fff; padding: 10px 22px;
@@ -99,7 +75,6 @@
       opacity: 0; transition: opacity 0.3s; pointer-events: none;
     }
     .toast.show { opacity: 1; }
-
     .sms-modal-overlay {
       display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5);
       z-index: 10000; align-items: flex-end; justify-content: center;
@@ -123,7 +98,6 @@
       background: linear-gradient(135deg, #5BB8A5, #4A90D9); color: #fff;
       font-size: 1rem; font-weight: 600; cursor: pointer;
     }
-
     .footer { text-align: center; font-size: 0.7rem; color: #bbb; padding: 16px; }
   </style>
 </head>
@@ -150,7 +124,7 @@
           <label>手机号</label>
           <div class="sms-row">
             <input type="tel" id="phone" placeholder="请输入手机号" maxlength="11" autocomplete="tel">
-            <button type="button" class="sms-btn" id="smsBtn" onclick="sendSms()">获取验证码</button>
+            <button type="button" class="sms-btn" id="smsBtn">获取验证码</button>
           </div>
         </div>
         <div class="form-group">
@@ -206,16 +180,21 @@
       <p class="sms-phone-info">已发送至 <strong id="smsPhoneDisplay"></strong></p>
       <div class="sms-code-display" id="smsCodeDisplay"></div>
       <p class="sms-hint">请记住验证码后关闭此提示</p>
-      <button class="btn-close-sms" onclick="closeSmsModal()">我知道了</button>
+      <button class="btn-close-sms" id="btnCloseSms">我知道了</button>
     </div>
   </div>
 
   <script>
     var WECOM_WEBHOOK = 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=a39f6c5d-727f-4889-85fd-5afcab1c534f';
+    var SHEET_WEBHOOK = 'https://qyapi.weixin.qq.com/cgi-bin/wedoc/smartsheet/webhook?key=6XEcVuwR9fAjWKvP5A1qlJ3NPOA8zl4L77FOj6c50uYEwIGIA46Aw5fcpEkuaB7IBTzLbk1Lq4yU663fv4b2X4iFR7cpnrhSeSU7pMxmjII0';
 
     var smsCode = '';
     var smsTimer = null;
     var smsCountdown = 0;
+
+    // 绑定事件
+    document.getElementById('smsBtn').addEventListener('click', sendSms);
+    document.getElementById('btnCloseSms').addEventListener('click', closeSmsModal);
 
     function sendSms() {
       var phone = document.getElementById('phone').value.trim();
@@ -263,7 +242,7 @@
         msgtype: 'markdown',
         markdown: {
           content:
-            '## 🔔 新线索 · 学科资料领取\n' +
+            '## 🔔 新线索\n' +
             '> **姓名**：' + data.name + '\n' +
             '> **手机号**：' + data.phone + '\n' +
             '> **意向学科**：' + data.subject + '\n' +
@@ -271,7 +250,6 @@
             '> 提交时间：' + data.time
         }
       };
-
       try {
         var resp = await fetch(WECOM_WEBHOOK, {
           method: 'POST',
@@ -286,10 +264,11 @@
           console.warn('企微推送异常：', result);
           return { ok: false, error: result };
         }
+      } catch (err) {
+        console.error('企微推送失败：', err);
+        return { ok: false, error: err.message };
+      }
     }
-
-    // ==================== 智能表格写入 ====================
-    var SHEET_WEBHOOK = 'https://qyapi.weixin.qq.com/cgi-bin/wedoc/smartsheet/webhook?key=6XEcVuwR9fAjWKvP5A1qlJ3NPOA8zl4L77FOj6c50uYEwIGIA46Aw5fcpEkuaB7IBTzLbk1Lq4yU663fv4b2X4iFR7cpnrhSeSU7pMxmjII0';
 
     async function pushToSheet(data) {
       var ts = new Date().getTime();
@@ -304,7 +283,6 @@
           }
         }]
       };
-
       try {
         var resp = await fetch(SHEET_WEBHOOK, {
           method: 'POST',
@@ -321,11 +299,6 @@
         }
       } catch (err) {
         console.error('智能表格写入失败：', err);
-        return { ok: false, error: err.message };
-      }
-    }
-      } catch (err) {
-        console.error('企微推送失败：', err);
         return { ok: false, error: err.message };
       }
     }
