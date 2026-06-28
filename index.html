@@ -185,6 +185,53 @@
     }
     .toast.show { opacity: 1; }
 
+    .sms-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 999;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .sms-modal-overlay.active { display: flex; }
+    .sms-modal {
+      background: #fff;
+      border-radius: 20px 20px 0 0;
+      padding: 32px 24px 40px;
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+      animation: slideUp 0.3s ease;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+    .sms-modal .sms-code-display {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: 12px;
+      color: #4A90D9;
+      margin: 20px 0 24px;
+      font-family: "SF Mono", "Menlo", "Courier New", monospace;
+    }
+    .sms-modal .sms-phone-info {
+      font-size: 0.85rem;
+      color: #999;
+      margin-bottom: 6px;
+    }
+    .sms-modal .btn-close-sms {
+      width: 100%;
+      height: 48px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #5BB8A5, #4A90D9);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
     .footer {
       text-align: center;
       font-size: 0.7rem;
@@ -271,6 +318,15 @@
 
   <div class="toast" id="toast"></div>
 
+  <div class="sms-modal-overlay" id="smsModalOverlay">
+    <div class="sms-modal">
+      <h3>📲 验证码</h3>
+      <p class="sms-phone-info">已发送至 <strong id="smsPhoneDisplay"></strong></p>
+      <div class="sms-code-display" id="smsCodeDisplay"></div>
+      <p style="font-size:0.78rem;color:#aaa;margin-bottom:20px">请记住验证码后关闭此提示</p>
+      <button class="btn-close-sms" onclick="closeSmsModal()">我知道了</button>
+    </div>
+  </div>
   <script>
     var FEISHU_WEBHOOK = 'https://open.feishu.cn/open-apis/bot/v2/hook/a37266ed-482a-4072-89df-789e967dbcf1';
 
@@ -287,8 +343,9 @@
       if (smsCountdown > 0) return;
 
       smsCode = String(Math.floor(1000 + Math.random() * 9000));
-      console.log('验证码：' + smsCode);
-      showToast('验证码已发送（查看控制台）');
+            document.getElementById("smsPhoneDisplay").textContent = phone;
+      document.getElementById('smsCodeDisplay').textContent = smsCode;
+      document.getElementById('smsModalOverlay').classList.add('active');
 
       smsCountdown = 60;
       var btn = document.getElementById('smsBtn');
@@ -314,6 +371,10 @@
       toast._timeout = setTimeout(function() {
         toast.classList.remove('show');
       }, 2000);
+    }
+
+    function closeSmsModal() {
+      document.getElementById("smsModalOverlay").classList.remove("active");
     }
 
     async function pushToFeishu(data) {
