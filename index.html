@@ -328,7 +328,7 @@
     </div>
   </div>
   <script>
-    var FEISHU_WEBHOOK = 'https://open.feishu.cn/open-apis/bot/v2/hook/a37266ed-482a-4072-89df-789e967dbcf1';
+    var WECOM_WEBHOOK = 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=a39f6c5d-727f-4889-85fd-5afcab1c534f';
 
     var smsCode = '';
     var smsTimer = null;
@@ -377,63 +377,42 @@
       document.getElementById("smsModalOverlay").classList.remove("active");
     }
 
-    async function pushToFeishu(data) {
-      if (!FEISHU_WEBHOOK || FEISHU_WEBHOOK.indexOf('YOUR_WEBHOOK_URL') !== -1) {
-        console.log('未配置飞书 Webhook，数据仅输出到控制台：', data);
-        return { ok: true, fallback: true };
-      }
-
+    // ==================== 企微推送 ====================
+    async function pushToWecom(data) {
       var body = {
-        msg_type: 'interactive',
-        card: {
-          header: {
-            title: { tag: 'plain_text', content: '新线索提醒 · 学科资料领取' },
-            template: 'blue'
-          },
-          elements: [
-            {
-              tag: 'div',
-              fields: [
-                { is_short: true, text: { tag: 'lark_md', content: '**姓名**\n' + data.name } },
-                { is_short: true, text: { tag: 'lark_md', content: '**手机号**\n' + data.phone } }
-              ]
-            },
-            {
-              tag: 'div',
-              fields: [
-                { is_short: true, text: { tag: 'lark_md', content: '**意向学科**\n' + data.subject } },
-                { is_short: true, text: { tag: 'lark_md', content: '**意向年级**\n' + data.grade } }
-              ]
-            },
-            {
-              tag: 'hr'
-            },
-            {
-              tag: 'note',
-              elements: [
-                { tag: 'plain_text', content: '提交时间：' + data.time }
-              ]
-            }
-          ]
+        msgtype: "markdown",
+        markdown: {
+          content:
+            "## 🔔 新线索 · 学科资料领取
+" +
+            "> **姓名**：" + data.name + "
+" +
+            "> **手机号**：" + data.phone + "
+" +
+            "> **意向学科**：" + data.subject + "
+" +
+            "> **意向年级**：" + data.grade + "
+" +
+            "> 提交时间：" + data.time
         }
       };
 
       try {
-        var resp = await fetch(FEISHU_WEBHOOK, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+        var resp = await fetch(WECOM_WEBHOOK, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(body)
         });
         var result = await resp.json();
-        if (result.code === 0 || result.StatusCode === 0) {
-          console.log('飞书推送成功');
+        if (result.errcode === 0) {
+          console.log("企微推送成功");
           return { ok: true };
         } else {
-          console.warn('飞书推送返回异常：', result);
+          console.warn("企微推送返回异常：", result);
           return { ok: false, error: result };
         }
       } catch (err) {
-        console.error('飞书推送失败：', err);
+        console.error("企微推送失败：", err);
         return { ok: false, error: err.message };
       }
     }
@@ -470,7 +449,7 @@
       var data = { name: nameVal, phone: phoneVal, subject: subjectVal, grade: gradeVal, time: timeStr };
       console.log('表单数据：', data);
 
-      await pushToFeishu(data);
+      await pushToWecom(data);
 
       // 跳转到老师微信页面，表单数据通过 URL 参数透传
       var params = new URLSearchParams();
