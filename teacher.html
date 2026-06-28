@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>添加老师微信</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 16px; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: #f0f5fb;
+      color: #333;
+      min-height: 100vh;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #4A90D9 0%, #5BB8A5 100%);
+      width: 100%;
+      padding: 48px 20px 36px;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: #f0f5fb;
+      border-radius: 50% 50% 0 0;
+    }
+
+    .success-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+    .header h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .header .subtitle {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      margin-top: 8px;
+    }
+
+    .card-section {
+      padding: 10px 16px 30px;
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .success-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px 20px;
+      box-shadow: 0 2px 16px rgba(74,144,217,0.08);
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    .success-card h2 {
+      font-size: 1.1rem;
+      color: #5BB8A5;
+      margin-bottom: 12px;
+    }
+    .success-card .info-row {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 6px;
+      font-size: 0.85rem;
+      color: #666;
+    }
+    .success-card .info-row span {
+      color: #999;
+    }
+
+    .wecom-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px 20px 28px;
+      box-shadow: 0 2px 16px rgba(74,144,217,0.08);
+      text-align: center;
+    }
+    .wecom-card .section-title {
+      font-size: 1.1rem;
+      color: #4A90D9;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .wecom-card .section-desc {
+      font-size: 0.82rem;
+      color: #999;
+      margin-bottom: 22px;
+    }
+    .wecom-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 3px solid #5BB8A5;
+      margin-bottom: 10px;
+      object-fit: cover;
+    }
+    .wecom-name {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 4px;
+    }
+    .wecom-role {
+      font-size: 0.78rem;
+      color: #999;
+      margin-bottom: 20px;
+    }
+    .qrcode-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 12px;
+      border: 4px solid #f0f5fb;
+      margin-bottom: 12px;
+    }
+    .qrcode-placeholder {
+      width: 200px;
+      height: 200px;
+      border-radius: 12px;
+      border: 2px dashed #ccc;
+      margin: 0 auto 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #bbb;
+      font-size: 0.8rem;
+      background: #fafafa;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .qrcode-tip {
+      font-size: 0.88rem;
+      color: #4A90D9;
+      font-weight: 500;
+    }
+    .qrcode-sub-tip {
+      font-size: 0.75rem;
+      color: #bbb;
+      margin-top: 6px;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.7rem;
+      color: #bbb;
+      padding: 16px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="success-icon">✓</div>
+    <h1>信息预留成功</h1>
+    <div class="subtitle">老师会尽快处理你的申请</div>
+  </header>
+
+  <section class="card-section">
+    <div class="success-card">
+      <h2>你的预留信息</h2>
+      <div class="info-row"><span>姓名</span> <strong id="infoName">-</strong></div>
+      <div class="info-row"><span>学科</span> <strong id="infoSubject">-</strong></div>
+      <div class="info-row"><span>年级</span> <strong id="infoGrade">-</strong></div>
+    </div>
+
+    <div class="wecom-card">
+      <div class="section-title">📱 添加老师微信</div>
+      <div class="section-desc">添加老师，更快领取资料</div>
+
+      <img class="wecom-avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Crect fill='%235BB8A5' width='72' height='72' rx='36'/%3E%3Ctext x='36' y='47' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3E师%3C/text%3E%3C/svg%3E" alt="老师头像">
+      <div class="wecom-name">好学教育-李老师</div>
+      <div class="wecom-role">资深学科规划师</div>
+
+      <div id="qrcodeContainer">
+        <div class="qrcode-placeholder" id="qrcodePlaceholder">
+          请替换为<br>企业微信二维码
+        </div>
+        <img class="qrcode-img" id="qrcodeImg" src="qrcode.png" alt="企业微信二维码" style="display:none" onerror="this.style.display='none';document.getElementById('qrcodePlaceholder').style.display='flex'" onload="this.style.display='inline-block';document.getElementById('qrcodePlaceholder').style.display='none'">
+      </div>
+      <div class="qrcode-tip">长按识别二维码添加老师</div>
+      <div class="qrcode-sub-tip">添加时备注"领取资料"更快通过</div>
+    </div>
+  </section>
+
+  <footer class="footer">© 2026 好学教育 · 用心做教育</footer>
+
+  <script>
+    // 从 URL 参数读取用户信息
+    var params = new URLSearchParams(window.location.search);
+    document.getElementById('infoName').textContent = params.get('name') || '-';
+    document.getElementById('infoSubject').textContent = params.get('subject') || '-';
+    document.getElementById('infoGrade').textContent = params.get('grade') || '-';
+  </script>
+</body>
+</html>

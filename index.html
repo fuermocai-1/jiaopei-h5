@@ -15,7 +15,6 @@
       line-height: 1.6;
     }
 
-    /* ===== 头部 Banner ===== */
     .header {
       background: linear-gradient(135deg, #4A90D9 0%, #5BB8A5 100%);
       padding: 48px 20px 36px;
@@ -60,7 +59,6 @@
       margin-top: 14px;
     }
 
-    /* ===== 表单区 ===== */
     .form-section {
       padding: 10px 16px 20px;
       position: relative;
@@ -122,7 +120,6 @@
       padding-right: 36px;
     }
 
-    /* 验证码行 */
     .sms-row {
       display: flex;
       gap: 10px;
@@ -171,138 +168,6 @@
       box-shadow: 0 2px 8px rgba(74,144,217,0.3);
     }
 
-    /* ===== 企微引流区 ===== */
-    .wecom-section {
-      padding: 0 16px 30px;
-      text-align: center;
-    }
-    .wecom-card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 28px 20px 24px;
-      box-shadow: 0 2px 16px rgba(74,144,217,0.08);
-      text-align: center;
-    }
-    .wecom-card .divider {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 20px;
-      color: #aaa;
-      font-size: 0.8rem;
-    }
-    .wecom-card .divider::before,
-    .wecom-card .divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: #e8edf2;
-    }
-    .wecom-card .wecom-avatar {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      border: 3px solid #5BB8A5;
-      margin-bottom: 10px;
-      object-fit: cover;
-    }
-    .wecom-card .wecom-name {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #333;
-      margin-bottom: 4px;
-    }
-    .wecom-card .wecom-role {
-      font-size: 0.78rem;
-      color: #999;
-      margin-bottom: 18px;
-    }
-    .wecom-card .qrcode-img {
-      width: 180px;
-      height: 180px;
-      border-radius: 10px;
-      border: 4px solid #f0f5fb;
-      margin-bottom: 10px;
-    }
-    .wecom-card .qrcode-tip {
-      font-size: 0.82rem;
-      color: #4A90D9;
-      font-weight: 500;
-    }
-    .qrcode-placeholder {
-      width: 180px;
-      height: 180px;
-      border-radius: 10px;
-      border: 2px dashed #ccc;
-      margin: 0 auto 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #bbb;
-      font-size: 0.8rem;
-      background: #fafafa;
-    }
-
-    /* ===== 弹窗 ===== */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
-      z-index: 999;
-      align-items: center;
-      justify-content: center;
-    }
-    .modal-overlay.active { display: flex; }
-    .modal {
-      background: #fff;
-      border-radius: 16px;
-      padding: 32px 24px 24px;
-      width: 85vw;
-      max-width: 340px;
-      text-align: center;
-      animation: modalIn 0.3s ease;
-    }
-    @keyframes modalIn {
-      from { transform: scale(0.85); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-    .modal .icon-check {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #4A90D9, #5BB8A5);
-      margin: 0 auto 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      color: #fff;
-    }
-    .modal h3 {
-      font-size: 1.1rem;
-      color: #333;
-      margin-bottom: 8px;
-    }
-    .modal p {
-      font-size: 0.85rem;
-      color: #777;
-      margin-bottom: 20px;
-      line-height: 1.5;
-    }
-    .modal .btn-close {
-      width: 100%;
-      height: 44px;
-      border: none;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #5BB8A5, #4A90D9);
-      color: #fff;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    /* ===== Toast ===== */
     .toast {
       position: fixed;
       top: 20px;
@@ -320,7 +185,6 @@
     }
     .toast.show { opacity: 1; }
 
-    /* ===== Footer ===== */
     .footer {
       text-align: center;
       font-size: 0.7rem;
@@ -331,7 +195,6 @@
 </head>
 <body>
 
-  <!-- 头部 Banner -->
   <header class="header">
     <div class="org-name">好学教育</div>
     <h1>免费领取学科资料包</h1>
@@ -339,7 +202,6 @@
     <div class="badge">🎓 已有 2,368 人领取</div>
   </header>
 
-  <!-- 表单区 -->
   <section class="form-section">
     <div class="form-card">
       <h2>📋 信息预留</h2>
@@ -405,44 +267,13 @@
     </div>
   </section>
 
-  <!-- 企微引流区 -->
-  <section class="wecom-section">
-    <div class="wecom-card">
-      <div class="divider">也可直接添加老师微信</div>
-      <img class="wecom-avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Crect fill='%235BB8A5' width='64' height='64' rx='32'/%3E%3Ctext x='32' y='42' text-anchor='middle' fill='white' font-size='28' font-family='sans-serif'%3E师%3C/text%3E%3C/svg%3E" alt="老师头像">
-      <div class="wecom-name">好学教育-李老师</div>
-      <div class="wecom-role">资深学科规划师</div>
-      <div id="qrcodeContainer">
-        <div class="qrcode-placeholder" id="qrcodePlaceholder">
-          请替换为<br>二维码图片
-        </div>
-        <img class="qrcode-img" id="qrcodeImg" src="qrcode.png" alt="企业微信二维码" style="display:none" onerror="this.style.display='none';document.getElementById('qrcodePlaceholder').style.display='flex'" onload="this.style.display='inline-block';document.getElementById('qrcodePlaceholder').style.display='none'">
-      </div>
-      <div class="qrcode-tip">📱 长按识别二维码添加老师</div>
-    </div>
-  </section>
-
   <footer class="footer">© 2026 好学教育 · 用心做教育</footer>
 
-  <!-- 提交成功弹窗 -->
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="modal">
-      <div class="icon-check">✓</div>
-      <h3>提交成功！</h3>
-      <p>老师会尽快联系你发送资料<br>请添加老师微信，领取更快哦～</p>
-      <button class="btn-close" onclick="closeModal()">好的，去添加老师</button>
-    </div>
-  </div>
-
-  <!-- Toast -->
   <div class="toast" id="toast"></div>
 
   <script>
-    // ==================== 配置 ====================
-    // 请填写你的飞书群机器人 Webhook URL
     var FEISHU_WEBHOOK = 'https://open.feishu.cn/open-apis/bot/v2/hook/a37266ed-482a-4072-89df-789e967dbcf1';
 
-    // ==================== 验证码 ====================
     var smsCode = '';
     var smsTimer = null;
     var smsCountdown = 0;
@@ -456,7 +287,7 @@
       if (smsCountdown > 0) return;
 
       smsCode = String(Math.floor(1000 + Math.random() * 9000));
-      console.log('\u{1F4F2} 验证码：' + smsCode + '（模拟发送到 ' + phone + '）');
+      console.log('验证码：' + smsCode);
       showToast('验证码已发送（查看控制台）');
 
       smsCountdown = 60;
@@ -475,7 +306,6 @@
       }, 1000);
     }
 
-    // ==================== Toast 提示 ====================
     function showToast(msg) {
       var toast = document.getElementById('toast');
       toast.textContent = msg;
@@ -486,19 +316,9 @@
       }, 2000);
     }
 
-    // ==================== 弹窗 ====================
-    function showModal() {
-      document.getElementById('modalOverlay').classList.add('active');
-    }
-    function closeModal() {
-      document.getElementById('modalOverlay').classList.remove('active');
-      document.querySelector('.wecom-section').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // ==================== 飞书推送 ====================
     async function pushToFeishu(data) {
       if (!FEISHU_WEBHOOK || FEISHU_WEBHOOK.indexOf('YOUR_WEBHOOK_URL') !== -1) {
-        console.log('⚠️ 未配置飞书 Webhook，数据仅输出到控制台：', data);
+        console.log('未配置飞书 Webhook，数据仅输出到控制台：', data);
         return { ok: true, fallback: true };
       }
 
@@ -506,7 +326,7 @@
         msg_type: 'interactive',
         card: {
           header: {
-            title: { tag: 'plain_text', content: '🔔 新线索提醒 · 学科资料领取' },
+            title: { tag: 'plain_text', content: '新线索提醒 · 学科资料领取' },
             template: 'blue'
           },
           elements: [
@@ -545,19 +365,18 @@
         });
         var result = await resp.json();
         if (result.code === 0 || result.StatusCode === 0) {
-          console.log('✅ 飞书推送成功');
+          console.log('飞书推送成功');
           return { ok: true };
         } else {
-          console.warn('⚠️ 飞书推送返回异常：', result);
+          console.warn('飞书推送返回异常：', result);
           return { ok: false, error: result };
         }
       } catch (err) {
-        console.error('❌ 飞书推送失败：', err);
+        console.error('飞书推送失败：', err);
         return { ok: false, error: err.message };
       }
     }
 
-    // ==================== 表单提交 ====================
     document.getElementById('reserveForm').addEventListener('submit', async function(e) {
       e.preventDefault();
 
@@ -588,18 +407,17 @@
         String(now.getSeconds()).padStart(2, '0');
 
       var data = { name: nameVal, phone: phoneVal, subject: subjectVal, grade: gradeVal, time: timeStr };
-      console.log('📋 表单数据：', data);
+      console.log('表单数据：', data);
 
       await pushToFeishu(data);
 
-      submitBtn.textContent = '立即领取';
-      submitBtn.style.opacity = '1';
-      submitBtn.style.pointerEvents = 'auto';
-
-      showModal();
-
-      document.getElementById('reserveForm').reset();
-      smsCode = '';
+      // 跳转到老师微信页面，表单数据通过 URL 参数透传
+      var params = new URLSearchParams();
+      params.set('name', nameVal);
+      params.set('phone', phoneVal);
+      params.set('subject', subjectVal);
+      params.set('grade', gradeVal);
+      window.location.href = 'teacher.html?' + params.toString();
     });
   </script>
 </body>
