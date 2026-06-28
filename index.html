@@ -286,6 +286,44 @@
           console.warn('企微推送异常：', result);
           return { ok: false, error: result };
         }
+    }
+
+    // ==================== 智能表格写入 ====================
+    var SHEET_WEBHOOK = 'https://qyapi.weixin.qq.com/cgi-bin/wedoc/smartsheet/webhook?key=6XEcVuwR9fAjWKvP5A1qlJ3NPOA8zl4L77FOj6c50uYEwIGIA46Aw5fcpEkuaB7IBTzLbk1Lq4yU663fv4b2X4iFR7cpnrhSeSU7pMxmjII0';
+
+    async function pushToSheet(data) {
+      var ts = new Date().getTime();
+      var body = {
+        add_records: [{
+          values: {
+            f04Gwj: data.name,
+            ftQMc5: data.phone,
+            ftk5Tx: data.subject,
+            fMAfWQ: data.grade,
+            fn8TJd: String(ts)
+          }
+        }]
+      };
+
+      try {
+        var resp = await fetch(SHEET_WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body)
+        });
+        var result = await resp.json();
+        if (result.errcode === 0) {
+          console.log('智能表格写入成功');
+          return { ok: true };
+        } else {
+          console.warn('智能表格写入异常：', result);
+          return { ok: false, error: result };
+        }
+      } catch (err) {
+        console.error('智能表格写入失败：', err);
+        return { ok: false, error: err.message };
+      }
+    }
       } catch (err) {
         console.error('企微推送失败：', err);
         return { ok: false, error: err.message };
@@ -323,6 +361,7 @@
 
       var data = { name: nameVal, phone: phoneVal, subject: subjectVal, grade: gradeVal, time: timeStr };
       await pushToWecom(data);
+      pushToSheet(data);
 
       submitBtn.textContent = '立即领取';
       submitBtn.style.opacity = '1';
